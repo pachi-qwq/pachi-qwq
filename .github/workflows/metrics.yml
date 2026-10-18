@@ -41,7 +41,7 @@ jobs:
           template: classic
           config_timezone: Asia/Taipei
           config_display: regular
-          config_padding: 6%, 12% + 24px
+          config_padding: 2%, 4% + 8px
           base: ""
           plugin_isocalendar: yes
           plugin_isocalendar_duration: half-year
