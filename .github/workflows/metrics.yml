@@ -40,8 +40,8 @@ jobs:
           filename: metrics-calendar.svg
           template: classic
           config_timezone: Asia/Taipei
-          config_display: large
-          config_padding: 4%, 10% + 20px
+          config_display: regular
+          config_padding: 6%, 12% + 24px
           base: ""
           plugin_isocalendar: yes
           plugin_isocalendar_duration: half-year
