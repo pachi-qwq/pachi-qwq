@@ -36,11 +36,5 @@ jobs:
           plugin_isocalendar: yes
           plugin_isocalendar_duration: half-year
 
-          # 最近活动（提交 / PR / issue 流水）
-          plugin_activity: yes
-          plugin_activity_limit: 8
-          plugin_activity_days: 30
-          plugin_activity_filter: push, pr, issue, release
-
           # 代码行数
           plugin_lines: yes
