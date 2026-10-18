@@ -1,0 +1,44 @@
+name: Metrics
+
+on:
+  schedule:
+    - cron: "30 2 * * *" # 10:30 Asia/Taipei
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          # 需要能读全账号仓库的 token（含私有库），见 README
+          token: ${{ secrets.METRICS_TOKEN }}
+          user: pachi-qwq
+          filename: github-metrics.svg
+          template: classic
+          config_timezone: Asia/Taipei
+          config_display: large
+          base: header, activity, community, repositories, metadata
+
+          # 语言（按仓库字节 + 百分比）
+          plugin_languages: yes
+          plugin_languages_limit: 8
+          plugin_languages_sections: most-used
+          plugin_languages_details: bytes-size, percentage
+          plugin_languages_analysis_timeframe: all
+          plugin_languages_ignored: html, css
+
+          # 编码习惯 / 活跃度（最近 14 天，取最近 200 次提交）
+          plugin_habits: yes
+          plugin_habits_from: 200
+          plugin_habits_days: 14
+          plugin_habits_facts: yes
+          plugin_habits_charts: yes
+
+          # 代码行数
+          plugin_lines: yes
