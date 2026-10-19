@@ -15,7 +15,7 @@ they got there.
 - **Rust + Win32 + Direct3D 11** — [Pixstride](https://github.com/pachi-qwq/pixstride),
   a native Windows image viewer aimed at fast startup and bounded memory. It is in
   *design review*: architecture docs, stress-test plan and repo tooling only, no viewer
-  binary yet. It is written down honestly, which is the point at this stage.
+  binary yet. The docs say so plainly, which is the point at this stage.
 - **AI coding agents** — Codex and Hermes are part of my daily loop. The interesting
   part is keeping them accountable: AGENTS.md conventions, documentation linters, tests
   that actually fail.
