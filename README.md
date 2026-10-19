@@ -4,13 +4,14 @@ A full-stack developer who likes tinkering with developer tools, graphics, and A
 
 #### Tech Stack
 
-**Daily** · Java / Vue / JavaScript<br>
-**Exploring** · Rust / Win32 / D3D11
+<p>
+<strong>Core</strong><br>
+<img src="./assets/tech/java.svg" alt="Java" width="64" height="26"> <img src="./assets/tech/vue.svg" alt="Vue" width="60" height="26"> <img src="./assets/tech/javascript.svg" alt="JavaScript" width="100" height="26">
+</p>
 
-- **[Pixstride](https://github.com/pachi-qwq/pixstride)** — a native Windows image viewer in early development, built with Rust, Win32, and D3D11.
-- **[Link Cleaner](https://github.com/pachi-qwq/link-cleaner-for-cloudflare-worker)** — a small Cloudflare Worker that removes tracking parameters from shared links.
+<p>
+<strong>Exploring</strong><br>
+<img src="./assets/tech/rust.svg" alt="Rust" width="64" height="26"> <img src="./assets/tech/win32.svg" alt="Win32" width="74" height="26"> <img src="./assets/tech/d3d11.svg" alt="D3D11" width="76" height="26">
+</p>
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./metrics-calendar-dark.svg">
-  <img src="./metrics-calendar.svg" width="480" alt="Isometric contribution calendar for the past six months">
-</picture>
+[Pixstride](https://github.com/pachi-qwq/pixstride) · [Link Cleaner](https://github.com/pachi-qwq/link-cleaner-for-cloudflare-worker)
