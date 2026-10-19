@@ -13,5 +13,3 @@ A full-stack developer who likes tinkering with developer tools, graphics, and A
 <strong>Exploring</strong><br>
 <img src="./assets/tech/rust.svg" alt="Rust" width="64" height="26"> <img src="./assets/tech/win32.svg" alt="Win32" width="74" height="26"> <img src="./assets/tech/d3d11.svg" alt="D3D11" width="76" height="26">
 </p>
-
-[Pixstride](https://github.com/pachi-qwq/pixstride) · [Link Cleaner](https://github.com/pachi-qwq/link-cleaner-for-cloudflare-worker)
