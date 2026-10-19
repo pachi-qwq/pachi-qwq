@@ -15,46 +15,44 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  languages:
+  calendar:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      # 只生成「语言分布」一张卡：GitHub 原生已有头像、贡献图、仓库数与 activity，
-      # 这里不再重复。base 置空即去掉 header/activity/community/repositories/metadata。
-      - name: Render languages card (light)
+      # 只生成折叠区域内的等距贡献日历，base 置空以省略重复统计。
+      - name: Render contribution calendar (light)
         uses: lowlighter/metrics@366f8b9dfe3a59656c67d5dcad9950f59c9bc96d # master 2023-12-18（项目自 2023-12 起停更）
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           user: pachi-qwq
-          filename: metrics-languages-light.svg
+          filename: metrics-calendar.svg
           template: classic
           config_timezone: Asia/Taipei
           config_display: regular
+          config_padding: 2%, 4% + 8px
           base: ""
           output_action: none # 不自己提交，统一由下一步只提交一次
-          plugin_languages: yes
-          plugin_languages_limit: 8
-          plugin_languages_sections: most-used
-          plugin_languages_details: bytes-size, percentage
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: half-year
 
       # metrics 不产出 prefers-color-scheme，配色输入经 composite 传进去也不生效，
-      # 所以深色版由浅色版替换文字颜色得到（语言色块保持不变）。
+      # 所以深色版由浅色版替换文字颜色得到（日历色块保持不变）。
       - name: Derive dark card and commit if changed
         run: |
           set -euo pipefail
 
-          sudo cp /metrics_renders/metrics-languages-light.svg .
-          sudo chown "$(id -u):$(id -g)" metrics-languages-light.svg
+          sudo cp /metrics_renders/metrics-calendar.svg .
+          sudo chown "$(id -u):$(id -g)" metrics-calendar.svg
 
           sed -E \
             -e 's/color:#777/color:#c9d1d9/g' \
             -e 's/color:#0366d6/color:#58a6ff/g' \
             -e 's/fill:#959da5/fill:#8b949e/g' \
             -e 's/color:#666/color:#8b949e/g' \
-            metrics-languages-light.svg > metrics-languages-dark.svg
+            metrics-calendar.svg > metrics-calendar-dark.svg
 
-          git add metrics-languages-light.svg metrics-languages-dark.svg
+          git add metrics-calendar.svg metrics-calendar-dark.svg
           if git diff --cached --quiet; then
             echo "cards unchanged, nothing to commit"
             exit 0
@@ -62,5 +60,5 @@ jobs:
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "chore: update language cards [skip ci]"
+          git commit -m "chore: update contribution calendar [skip ci]"
           git push
